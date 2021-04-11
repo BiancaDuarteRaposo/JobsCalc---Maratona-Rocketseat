@@ -83,9 +83,17 @@
             <div class="name column"><%= job.name %></div>
             <div class="deadline column">
               <span>Prazo</span>
+
               <p>
-                <% if(job.status === 'progress') { %> <%= job.remaining %> dias
-                para a entrega <% } else { %> Prazo encerrado <% } %>
+                <% if(job.status === 'progress' && job.remaining >= 0) { %>
+                Faltam <%=job.remaining %> dias para a entrega <% } else
+                if(job.status === 'progress' && job.remaining < 0) { %> <%=
+                Math.abs(job.remaining) %> dias atrasado <% } else if(job.status
+                === 'done' && job.aheadDays >= 0) { %> Entregue <%=
+                job.aheadDays %> dias adiantado <% } else if(job.status ===
+                'done' && job.aheadDays < 0) { %> Entregue <%=
+                Math.abs(job.aheadDays) %> dias atrasado <% } else { %> Prazo
+                encerrado <% } %>
               </p>
             </div>
             <div class="amount column">

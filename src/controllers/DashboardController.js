@@ -18,7 +18,9 @@ module.exports = {
     const updatedJobs = jobs.map((job) => {
       //ajustesno job
       const remaining = JobUtils.remainingDays(job);
-      const status = remaining <= 0 ? "done" : "progress";
+      const aheadDays = JobUtils.calculateAheadDays(job);
+
+      const status = job["is-finished"] == "1" ? "done" : "progress";
 
       //somando a quantidade de status
       statusCount[status] += 1;
@@ -32,6 +34,7 @@ module.exports = {
       return {
         ...job,
         remaining,
+        aheadDays,
         status,
         budget: JobUtils.calculateBudget(job, profile["value-hour"]),
       };
