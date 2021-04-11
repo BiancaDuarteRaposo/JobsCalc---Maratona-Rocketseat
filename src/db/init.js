@@ -20,7 +20,9 @@ const initDb = {
     name TEXT,
     daily_hours INT,
     total_hours INT,
-    created_at DATETIME
+    created_at DATETIME,
+    finished_at DATETIME NULL,
+    is_finished INT DEFAULT 0
 );`);
 
     await db.run(`INSERT INTO profile (

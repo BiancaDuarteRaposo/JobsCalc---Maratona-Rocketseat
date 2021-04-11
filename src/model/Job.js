@@ -14,16 +14,22 @@ module.exports = {
       "daily-hours": job.daily_hours,
       "total-hours": job.total_hours,
       created_at: job.created_at,
+      "is-finished": job.is_finished,
+      finished_at: job.finished_at,
     }));
   },
 
   async update(updatedJob, jobId) {
     const db = await Database();
 
+    let finished_at = updatedJob["is-finished"] == "1" ? Date.now() : null;
+
     await db.run(`UPDATE jobs SET
     name = "${updatedJob.name}",
     daily_hours = ${updatedJob["daily-hours"]},
-    total_hours = ${updatedJob["total-hours"]}
+    total_hours = ${updatedJob["total-hours"]},
+    is_finished = ${updatedJob["is-finished"]},
+    finished_at = ${finished_at}
     WHERE id = ${jobId}
     `);
   },

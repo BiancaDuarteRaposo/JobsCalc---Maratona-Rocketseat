@@ -59,6 +59,7 @@
                   name="daily-hours"
                   value="<%= job["daily-hours"] %>"/>
               </div>
+              
 
               <div class="input-wrapper">
                 <label for="total-hours">Estimativa de <br/>
@@ -69,6 +70,19 @@
                   name="total-hours"
                   value="<%= job["total-hours"] %>"/>
               </div>
+            </div>
+
+            <div class="input-group">
+              <div class="input-wrapper">
+                <label >Job finalizado?</label>
+                  <input type="radio" id="job-finished-true" name="is-finished" value="1" <% if(job["is-finished"] == "1"){ %> checked <% }%>>
+                  <label for="job-finished-true">Sim</label><br>
+                  <input type="radio" id="job-finished-false" name="is-finished" value="0" <% if(job["is-finished"] == "0"){ %> checked <% }%>>
+                  <label for="job-finished-false">Não</label><br>
+              </div>
+              
+
+          
             </div>
           </fieldset>
     
