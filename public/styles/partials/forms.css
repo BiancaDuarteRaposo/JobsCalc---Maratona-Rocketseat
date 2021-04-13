@@ -60,5 +60,6 @@ input {
   width: 50%;
 }
 .radio {
-  width: max-content;
+  width: 15%;
+  cursor: pointer;
 }

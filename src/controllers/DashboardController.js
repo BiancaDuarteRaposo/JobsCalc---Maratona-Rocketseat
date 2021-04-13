@@ -17,10 +17,10 @@ module.exports = {
 
     const updatedJobs = jobs.map((job) => {
       //ajustando o job
+      const finishedAt = JobUtils.finishedAtDate(job);
       const remaining = JobUtils.remainingDays(job);
       const aheadDays = JobUtils.calculateAheadDays(job);
       const status = job["is-finished"] == "1" ? "done" : "progress";
-
       //somando a quantidade de status
       statusCount[status] += 1;
 
@@ -34,12 +34,13 @@ module.exports = {
         ...job,
         remaining,
         aheadDays,
+        finishedAt,
         status,
         budget: JobUtils.calculateBudget(job, profile["value-hour"]),
       };
     });
-    //qtd de horas que quero trabalhar profile menos a qtd de horas dia de cada projeto
 
+    //qtd de horas que quero trabalhar profile menos a qtd de horas dia de cada projeto
     const freeHours = profile["hours-per-day"] - jobTotalHours;
 
     return res.render("index", {

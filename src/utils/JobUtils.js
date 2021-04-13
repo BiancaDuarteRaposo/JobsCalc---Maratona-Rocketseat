@@ -21,7 +21,7 @@ module.exports = {
 
   calculateAheadDays(job) {
     let createdDate = new Date(job.created_at);
-    const finishedDate = new Date(job.finished_at);
+    let finishedDate = new Date(job.finished_at);
     const remainingDays = (job["total-hours"] / job["daily-hours"]).toFixed();
     const dueDay = createdDate.getDate() + Number(remainingDays);
     const dueDate = createdDate.setDate(dueDay);
@@ -31,5 +31,17 @@ module.exports = {
     const aheadDays = Math.ceil(aheadDaysInMs / dayInMs);
 
     return aheadDays;
+  },
+
+  finishedAtDate(job) {
+    let finishedDate = new Date(job.finished_at);
+    let dataFormatada =
+      finishedDate.getDate() +
+      "/" +
+      (finishedDate.getMonth() + 1) +
+      "/" +
+      finishedDate.getFullYear();
+
+    return dataFormatada;
   },
 };

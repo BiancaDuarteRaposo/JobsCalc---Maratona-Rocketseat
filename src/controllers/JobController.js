@@ -13,6 +13,7 @@ module.exports = {
       "daily-hours": req.body["daily-hours"],
       "total-hours": req.body["total-hours"],
       created_at: Date.now(), // atribuindo data de hoje
+      finished_at: Date.now(),
     });
 
     return res.redirect("/");
