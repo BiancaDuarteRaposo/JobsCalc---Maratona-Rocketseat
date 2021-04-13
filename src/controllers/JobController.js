@@ -43,6 +43,7 @@ module.exports = {
       "total-hours": req.body["total-hours"],
       "daily-hours": req.body["daily-hours"],
       "is-finished": req.body["is-finished"],
+      finished_at: req.body.finished_at,
     };
 
     await Job.update(updatedJob, jobId);

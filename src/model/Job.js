@@ -29,7 +29,7 @@ module.exports = {
     daily_hours = ${updatedJob["daily-hours"]},
     total_hours = ${updatedJob["total-hours"]},
     is_finished = ${updatedJob["is-finished"]},
-    finished_at = ${finished_at}
+    finished_at = "${finished_at}"
     WHERE id = ${jobId}
     `);
   },

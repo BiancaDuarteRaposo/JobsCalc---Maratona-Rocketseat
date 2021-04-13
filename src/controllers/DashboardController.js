@@ -16,10 +16,9 @@ module.exports = {
     let jobTotalHours = 0;
 
     const updatedJobs = jobs.map((job) => {
-      //ajustesno job
+      //ajustando o job
       const remaining = JobUtils.remainingDays(job);
       const aheadDays = JobUtils.calculateAheadDays(job);
-
       const status = job["is-finished"] == "1" ? "done" : "progress";
 
       //somando a quantidade de status

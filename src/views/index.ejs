@@ -85,13 +85,13 @@
               <span>Prazo</span>
 
               <p>
-                <% if(job.status === 'progress' && job.remaining >= 0) { %>
+                <% if(job.status === 'progress' && job.remaining >= 1) { %>
                 Faltam <%=job.remaining %> dias para a entrega <% } else
                 if(job.status === 'progress' && job.remaining < 0) { %> <%=
-                Math.abs(job.remaining) %> dias atrasado <% } else if(job.status
-                === 'done' && job.aheadDays >= 0) { %> Entregue <%=
-                job.aheadDays %> dias adiantado <% } else if(job.status ===
-                'done' && job.aheadDays < 0) { %> Entregue <%=
+                Math.abs(job.remaining) %> dias atrasado <% } else if
+                (job.status === 'done' && job.aheadDays > 0) { %> Entregue <%=
+                job.aheadDays %> dias adiantado <% } else if(job.status
+                ==='done' && job.aheadDays < 0) { %> Entregue <%=
                 Math.abs(job.aheadDays) %> dias atrasado <% } else { %> Prazo
                 encerrado <% } %>
               </p>

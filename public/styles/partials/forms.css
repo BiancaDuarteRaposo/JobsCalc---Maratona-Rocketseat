@@ -46,10 +46,8 @@ input {
 
   border: 1px solid #e1e3e6;
   border-radius: 0.313rem;
-
-  padding: 0.75rem 1.5rem;
-
   width: 100%;
+  padding: 0.75rem 1.5rem;
 
   color: var(--color-card-title);
 }
@@ -60,4 +58,7 @@ input {
 
 .input-wrapper {
   width: 50%;
+}
+.radio {
+  width: max-content;
 }

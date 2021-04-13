@@ -21,15 +21,15 @@ module.exports = {
 
   calculateAheadDays(job) {
     let createdDate = new Date(job.created_at);
-    const remainingDays = (job["total-hours"] / job["daily-hours"]).toFixed();
     const finishedDate = new Date(job.finished_at);
+    const remainingDays = (job["total-hours"] / job["daily-hours"]).toFixed();
     const dueDay = createdDate.getDate() + Number(remainingDays);
     const dueDate = createdDate.setDate(dueDay);
     const dayInMs = 1000 * 60 * 60 * 24;
 
     const aheadDaysInMs = dueDate - finishedDate;
-    const aheadDaysDiff = Math.ceil(aheadDaysInMs / dayInMs);
+    const aheadDays = Math.ceil(aheadDaysInMs / dayInMs);
 
-    return aheadDaysDiff;
+    return aheadDays;
   },
 };

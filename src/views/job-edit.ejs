@@ -44,7 +44,7 @@
                 type="text" 
                 id="name" 
                 name="name"
-                value="<%= job.name %> "
+                value="<%= job.name %>"
               />
             </div>
 
@@ -74,11 +74,28 @@
 
             <div class="input-group">
               <div class="input-wrapper">
-                <label >Job finalizado?</label>
-                  <input type="radio" id="job-finished-true" name="is-finished" value="1" <% if(job["is-finished"] == "1"){ %> checked <% }%>>
-                  <label for="job-finished-true">Sim</label><br>
-                  <input type="radio" id="job-finished-false" name="is-finished" value="0" <% if(job["is-finished"] == "0"){ %> checked <% }%>>
-                  <label for="job-finished-false">Não</label><br>
+                <label>Job finalizado?</label>
+                <br>
+                  <input 
+
+                  type="radio" 
+                  id="job-finished-true" 
+                  name="is-finished" 
+                  class="radio"
+                  value="1" <% if(job["is-finished"] == "1"){ %> checked <% }%>>
+                  
+                  <label 
+                  for="job-finished-true">Sim</label>
+                  
+                  <input 
+                  type="radio" 
+                  id="job-finished-false" 
+                  name="is-finished" 
+                  class="radio"
+                  value="0" <% if(job["is-finished"] == "0"){ %> checked <% }%>>
+                  
+                  <label 
+                  for="job-finished-false">Não</label><br>
               </div>
               
 
